@@ -8,5 +8,5 @@ import lombok.Setter;
 public class PostCreateDto {
     private String title;
     private String content;
-    private int author_id;
+    private Integer author_id;
 }
