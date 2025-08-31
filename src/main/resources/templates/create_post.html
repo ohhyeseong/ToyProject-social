@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성</title>
+</head>
+<body>
+<h1>새로운 게시글 작성</h1>
+<form action="/post/create" method="post">
+    <label for="title">제목:</label><br>
+    <input type="text" id="title" name="title"><br><br>
+
+    <label for="content">내용:</label><br>
+    <textarea id="content" name="content"></textarea><br><br>
+
+    <input type="submit" value="게시글 작성">
+    <input type="hidden" name="author_id" value="1">
+</form>
+</body>
+</html>

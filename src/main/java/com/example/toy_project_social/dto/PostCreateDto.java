@@ -1,0 +1,12 @@
+package com.example.toy_project_social.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class PostCreateDto {
+    private String title;
+    private String content;
+    private int author_id;
+}
