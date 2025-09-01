@@ -8,8 +8,8 @@
 <h1 th:text="${post.title}"></h1>
 <p th:text="${post.content}"></p>
 <hr>
-<div th:text="'작성자 ID: ' + ${post.author_id}"></div>
-<div th:text="'작성 시간: ' + ${post.created_time}"></div>
+<div th:text="'작성자: ' + ${post.author.name}"></div>
+<div th:text="'작성 시간: ' + ${#temporals.format(post.createdTime, 'yyyy-MM-dd HH:mm')}"></div>
 
 <a th:href="@{/post/fix/{id}(id=${post.id})}">수정하기</a>
 <a th:href="@{/post/delete/{id}(id=${post.id})}">삭제</a>

@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -13,24 +12,31 @@ import java.util.Date;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private Integer id;
+
+    @Column(nullable = false, length = 200)
+    private String title;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String content;
 
     @Column
-    String title;
+    private LocalDateTime createdTime;
 
     @Column
-    String content;
+    private LocalDateTime updatedTime;
 
-    @Column
-    LocalDateTime created_time;
+    @ManyToOne
+    private SiteUser author;
 
-    @Column
-    LocalDateTime updated_time;
+    @PrePersist
+    public void prePersist() {
+        this.createdTime = LocalDateTime.now();
+        this.updatedTime = this.createdTime;
+    }
 
-    @Column
-    int author_id;
-
-    public Post() {
-
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedTime = LocalDateTime.now();
     }
 }
