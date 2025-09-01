@@ -10,5 +10,8 @@
 <hr>
 <div th:text="'작성자 ID: ' + ${post.author_id}"></div>
 <div th:text="'작성 시간: ' + ${post.created_time}"></div>
+
+<a th:href="@{/post/fix/{id}(id=${post.id})}">수정하기</a>
+<a th:href="@{/post/delete/{id}(id=${post.id})}">삭제</a>
 </body>
 </html>
